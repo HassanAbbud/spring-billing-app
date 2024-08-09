@@ -36,8 +36,15 @@ public class Invoice {
     public void setItems(List<Item> items) {
         this.items = items;
     }
-
+    
     public int getTotal(){
-        return 0;        
+        // int total = 0;
+        // for(Item item : items){
+        //     total = total + item.getAmount();
+        // }
+        // return total;
+        return items.stream()
+        .map(item -> item.getAmount())
+        .reduce(0, (sum, amount) -> sum + amount);
     }
 }
