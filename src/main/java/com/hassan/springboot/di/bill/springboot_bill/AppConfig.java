@@ -11,7 +11,7 @@ import com.hassan.springboot.di.bill.springboot_bill.models.Item;
 import com.hassan.springboot.di.bill.springboot_bill.models.Product;
 
 @Configuration
-@PropertySource("classpath:data.properties")
+@PropertySource(value = "classpath:data.properties", encoding = "UTF-8")
 public class AppConfig {
 
     @Bean
