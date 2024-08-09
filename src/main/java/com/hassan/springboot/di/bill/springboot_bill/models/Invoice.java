@@ -6,17 +6,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import jakarta.annotation.PostConstruct;
+
 @Component
 public class Invoice {
 
     @Autowired
     private Client client;
-
     @Value("${invoice.description.office}")
     private String description;
-
     @Autowired
     private List<Item> items;
+
+    @PostConstruct
+    public void init(){
+        System.out.println("Generating Invoice component");
+        client.setName(client.getName().concat(" Andres"));
+        description = description.concat(" of our client " + client.getName());
+    }
 
     public Client getClient() {
         return client;
