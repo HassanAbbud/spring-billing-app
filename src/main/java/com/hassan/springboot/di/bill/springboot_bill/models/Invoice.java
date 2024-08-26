@@ -54,6 +54,7 @@ public class Invoice {
         this.items = items;
     }
     
+    //naming convention "get" gets recognized as java bean
     public int getTotal(){
         // int total = 0;
         // for(Item item : items){
